@@ -1066,6 +1066,20 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
     if (_modalFooter != null) {
       _widgets.add(_modalFooter);
     }
+
+    if (modalConfig.isPopupDialog &&
+        (modalConfig.maxWidth != null || modalConfig.maxHeight != null)) {
+      return Container(
+        height: modalConfig.maxHeight,
+        width: modalConfig.maxWidth,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: _widgets,
+        ),
+      );
+    }
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,

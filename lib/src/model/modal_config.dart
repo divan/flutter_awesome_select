@@ -61,6 +61,12 @@ class S2ModalConfig with Diagnosticable {
   /// If [type] is [S2ModalType.bottomSheet], specifies the max height factor, the value must be between `0` and` 1`
   final double maxHeightFactor;
 
+  /// Maximum height of the popup modal
+  final double? maxHeight;
+
+  /// Maximum width of the popup modal
+  final double? maxWidth;
+
   /// If [type] is [S2ModalType.bottomSheet], specifies whether the bottom sheet can be dragged up and down and dismissed by swiping downwards.
   final bool enableDrag;
 
@@ -95,6 +101,8 @@ class S2ModalConfig with Diagnosticable {
     this.filterDelay = const Duration(milliseconds: 300),
     this.filterHint,
     this.maxHeightFactor = 0.6,
+    this.maxHeight,
+    this.maxWidth,
     this.enableDrag = true,
     this.barrierDismissible = true,
     this.barrierColor,
@@ -134,6 +142,8 @@ class S2ModalConfig with Diagnosticable {
     Duration? filterDelay,
     String? filterHint,
     double? maxHeightFactor,
+    double? maxHeight,
+    double? maxWidth,
     bool? enableDrag,
     bool? barrierDismissible,
     Color? barrierColor,
@@ -155,6 +165,8 @@ class S2ModalConfig with Diagnosticable {
       filterDelay: filterDelay ?? this.filterDelay,
       filterHint: filterHint ?? this.filterHint,
       maxHeightFactor: maxHeightFactor ?? this.maxHeightFactor,
+      maxHeight: maxHeight ?? this.maxHeight,
+      maxWidth: maxWidth ?? this.maxWidth,
       enableDrag: enableDrag ?? this.enableDrag,
       barrierDismissible: barrierDismissible ?? this.barrierDismissible,
       barrierColor: barrierColor ?? this.barrierColor,
@@ -185,7 +197,8 @@ class S2ModalConfig with Diagnosticable {
       filterAuto: other.filterAuto,
       filterDelay: other.filterDelay,
       filterHint: other.filterHint,
-      maxHeightFactor: other.maxHeightFactor,
+      maxHeight: other.maxHeight,
+      maxWidth: other.maxWidth,
       enableDrag: other.enableDrag,
       barrierDismissible: other.barrierDismissible,
       barrierColor: other.barrierColor,
